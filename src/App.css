@@ -1,38 +1,185 @@
-.App {
-  text-align: center;
+
+@font-face {
+  font-family: 'ComicTragedy';
+  src: url('./fonts/comictragedy.ttf') format('truetype');
+  font-display: swap;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: 'Plastic';
+  src: url('./fonts/plastic.TTF') format('truetype');
+  font-display: swap;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: 'Western';
+  src: url('./fonts/WesternCowboy.ttf') format('truetype');
+  font-display: swap;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@font-face {
+  font-family: 'Intimidating';
+  src: url('./fonts/CRYPETIC.ttf') format('truetype');
+  font-display: swap;
+}
+
+/* --- Global background --- */                      /* fallback color after image ends */
+:root{
+  --doc-bg: #fff8e7; 
+  --page-bg-image: url("./assets/darkgreen.jpeg"); /* <-- change to your image */
+  /* soft ivory */
+  --doc-surface: #fffaf0;      /* slightly lighter for cards */
+  --doc-border: #eadfd0;       /* warm border */
+  --doc-text: #1f2937;         /* dark gray body text */
+  --doc-muted: #64748b;        /* muted text */
+  --doc-code: #f3efe6;         /* code/pre background */
+}
+
+/* Generic “document page” wrapper */
+.doc-ivory {
+  background: var(--doc-bg) !important;
+}
+
+/* Make sticky headers match the ivory */
+.doc-ivory .infra-header,
+.doc-ivory .readings-header {
+  background: color-mix(in srgb, var(--doc-bg) 85%, white) !important;
+  border-bottom: 1px solid var(--doc-border) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Markdown body colors */
+.doc-ivory .markdown-body {
+  color: var(--doc-text);
+}
+.doc-ivory .markdown-body a { color: #0ea5e9; }
+.doc-ivory .markdown-body code,
+.doc-ivory .markdown-body pre {
+  background: var(--doc-code);
+  border: 1px solid var(--doc-border);
+}
+
+
+/* make the black color fill the whole scrolled document */
+html, body, #root {
+  min-height: 100%;
+  background-color: var(--page-bg);
+}
+
+/* paint the image at the top; don't repeat; when it ends, black shows */
+body {
+  background-image: var(--page-bg-image);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 1400px auto;  /* or 'contain' / '100% auto' / 'cover' */
+}
+
+
+
+.top-section {
+  background-image: url('./assets/samesongbeenstuckinmymind.jpeg');
+  background-size: cover;
+  background-position: bottom;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 0 20px;
+  height: 150px;
+}
+
+.site-title {
+  font-family: 'ComicTragedy', sans-serif;
+  font-size: 6rem;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links-slim {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links-slim a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.7rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.nav-links-slim a:hover {
+  text-decoration: underline;
+}
+
+.main-page {
+  background-image: url('./assets/darkgreen.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+.flamegirl-image{
+  position: absolute;
+  top: -30px;
+  left: 250px;
+  width: 100px;
+}
+
+.calendar-image{
+  position: absolute;
+  top: 80px;
+  left: 50px;
+  width: 600px;
+}
+
+.calendar-text-container{
+  position: absolute;
+  font-family: "Western";
+  font-size: 2rem;
+  left: 20px;
+  top: 50px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.speech-container{
+  position: absolute;
+  max-width: 100px;
+  font-size: 1.2rem;
+  color: white;
+  top: 300px;
+  left: 790px;
+  font-family: "Intimidating";
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+.ataglance-wide {
+  /* wider than your 960px layout but still responsive */
+  max-width: 360px;          /* try 1200–1280px */
+  width: min(92vw, 1200px);   /* shrink on small screens */
+  margin: 20px auto;          /* center it */
+  padding: 0 12px; 
+  position: absolute;   
+  left: 630px;
+  top: 20px;        /* small gutter */
+}
+
+
+.ribbon-image{
+  position: absolute;
+  width: 320px;
+  top: -10px;
+  left: 970px;
+
 }

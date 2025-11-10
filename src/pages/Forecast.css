@@ -1,0 +1,218 @@
+@font-face {
+    font-family: 'ATFBrush';
+    src: url('../fonts/BrushATF.otf') format('truetype');
+    font-display: swap;
+  }
+  
+
+:root {
+    --ink: #0f172a;         /* slate-900-ish */
+    --ink-2: #3c3218;       /* slate-700-ish */
+    --ink-3: #8c473b;       /* slate-500-ish */
+    --line: #e2e8f0;        /* slate-200 */
+    --card: #ffffff;
+    --card-dark: #0b0b0b;
+    --accent: #111827;
+    --shadow: 0 6px 24px rgba(2, 6, 23, 0.08);
+  }
+  
+  * { box-sizing: border-box; }
+  
+  .forecast-root {
+    color: var(--ink);
+    background: #e38502;
+    min-height: 100vh;
+  }
+  
+  /* Header */
+  .forecast-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(67, 35, 5, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-family: "ATFBrush", sans-serif;
+    font-size: 1.2rem;
+    color: white;
+  }
+  .header-inner h1 {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.2;
+  }
+  .header-inner p {
+    margin: 4px 0 0;
+    color: var(--ink-3);
+  }
+
+  .header-sub{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    font-size: 18px;
+    color: var(--ink-3);
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  /* Chip nav */
+  .chip-nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .chip {
+    text-decoration: none;
+    color: white;
+    border: 1px solid var(--line);
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    white-space: nowrap;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: 800;
+  }
+  .chip:hover { background: #f8fafc; }
+  
+  /* Flow canvas */
+  .flow-outer {
+    overflow-x: auto;
+    overflow-y: visible;  /* was hidden */
+    padding-bottom: 48px; /* gives room for the lower cards */
+  }
+  
+  .flow-inner {
+    position: relative;
+    margin: 0 auto;
+  }
+  
+  /* The big arrow under everything */
+  .flow-arrow {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+    opacity: 0.9;
+  }
+  
+  /* Step positioning */
+  .step-wrap {
+    position: absolute;
+    top: 0;
+    width: 360px;
+  }
+  
+  /* Connector from arrow to card */
+  .connector {
+    position: absolute;
+    left: 180px; /* center under card */
+    top: 0;
+    height: 100%;
+  }
+  .connector-line {
+    stroke: var(--ink-3);
+    stroke-width: 2;
+  }
+  .dot {
+    fill: var(--accent);
+  }
+  
+  /* Cards */
+  .step-card {
+    position: absolute;
+    width: 360px;
+    background: rgb(251, 240, 141);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 14px 14px 12px;
+    box-shadow: var(--shadow);
+  }
+  .step-card.top { transform: translate(-0px, 0); }
+  .step-card.bottom { transform: translate(-0px, 0); }
+  
+  .step-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .step-title h3 {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.25;
+  }
+  .step-title span {
+    font-size: 12px;
+    color: var(--ink-3);
+  }
+  
+  .blurb, .pre {
+    margin: 8px 0 0;
+    color: var(--ink-2);
+    font-size: 14px;
+  }
+  
+  /* Table */
+  .table-wrap { margin-top: 8px; overflow-x: auto; }
+  .table-wrap table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .table-wrap thead th {
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    padding: 6px 8px;
+    font-weight: 600;
+  }
+  .table-wrap tbody td {
+    border-bottom: 1px solid #eef2f7;
+    padding: 6px 8px;
+    vertical-align: top;
+  }
+  
+  /* Bullets */
+  .bullets { margin: 8px 0 0 18px; }
+  .bullets li { margin: 4px 0; }
+  
+  /* Tip */
+  .tip {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #92400e;
+    background: #fff7ed;
+    border: 1px solid #fde68a;
+    border-radius: 10px;
+    padding: 8px;
+  }
+  
+  /* Thumbnail */
+  .thumb {
+    margin: 10px 0 0;
+  }
+  .thumb img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+  .thumb figcaption {
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-3);
+    margin-top: 4px;
+  }
+
+  
+  

@@ -1,0 +1,30 @@
+/* Load page-only fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=DM+Serif+Display:ital@0;1&display=swap");
+
+/* Page-scoped variables (only affect elements under .infra-root) */
+.infra-root {
+  --infra-font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --infra-font-title: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --infra-bg: #feab4b;   /* page background */
+  --infra-ink: #0f172a;  /* text color */
+}
+
+/* Apply them */
+.infra-root {
+  background: var(--infra-bg);
+  color: var(--infra-ink);
+  font-family: var(--infra-font-body);
+}
+
+/* Title font (the big header at the top) */
+.infra-header h1 {
+  font-family: var(--infra-font-title);
+}
+
+/* Optional: use title font for top-level headings inside the markdown too */
+.markdown-body h1,
+.markdown-body h2 {
+  font-family: var(--infra-font-title);
+}
+
+/* (Keep your existing markdown styles; these just override fonts/colors locally) */
